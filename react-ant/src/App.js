@@ -26,8 +26,6 @@ class App extends Component {
 
   updateGridSize = (e) => {
     const value = Number(e.target.value)
-    if (value < 10 || value > 80) return;
-
     this.setState({ gridSize: value } )
   }
 
@@ -53,7 +51,9 @@ class App extends Component {
 
   reset = () => {
     clearInterval(this.interval);
-    this.setState({ play: false, antGrid: this.createGrid() });
+    let gridSize = this.state.gridSize;
+    if (gridSize < 10 || gridSize > 80) gridSize = 25;
+    this.setState({ play: false, gridSize, antGrid: this.createGrid() });
   };
 
   render() {

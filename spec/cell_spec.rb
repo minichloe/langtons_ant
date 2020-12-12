@@ -26,7 +26,7 @@ RSpec.describe Cell do
   end
 
   describe "#readable_colour" do
-    subject { cell.readable_colour}
+    subject { cell.readable_colour }
 
     context "when colour is white" do
       it { is_expected.to eq("W") }
